@@ -20,7 +20,11 @@ class DefaultController extends Controller
     }
 
     /**
-     * @Route("/about/{name}", name="aboutpage")
+     * @Route(
+     *     "/about/{name}",
+     *     name="aboutpage",
+     *     defaults={"name": null}
+     * )
      */
     public function aboutAction($name)
     {
