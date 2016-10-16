@@ -177,14 +177,14 @@
     <target name="phpunit-no-coverage" unless="phpunit.done" depends="prepare" description="Run unit tests with PHPUnit (without generating code coverage reports)">
         <exec executable="${phpunit}" failonerror="true" taskname="phpunit">
             <arg value="--configuration" />
-            <arg path="${builddir}/phpunit.xml" />
+            <arg path="${basedir}/phpunit.xml" />
             <arg value="--no-coverage" />
         </exec>
         <property name="phpunit.done" value="true" />
     </target>
 
     <target name="phpdox" unless="phpdox.done" depends="phploc-ci,phpcs-ci,phpmd-ci" description="Generate project documentation using phpDox">
-        <exec executable="${phpdox}" dir="${builddir}" taskname="phpdox" />
+        <exec executable="${phpdox}" dir="${basedir}" taskname="phpdox" />
         <property name="phpdox.done" value="true" />
     </target>
 
