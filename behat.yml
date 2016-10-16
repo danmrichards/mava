@@ -3,5 +3,6 @@ default:
         Behat\Symfony2Extension: ~
         Behat\MinkExtension:
             goutte: ~
-            selenium2: ~
+            selenium2:
+                browser: chrome
             base_url: http://localhost:8000/app_dev.php
