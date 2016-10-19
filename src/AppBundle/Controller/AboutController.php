@@ -9,6 +9,7 @@ use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Class AboutController
+ *
  * @package AppBundle\Controller
  */
 class AboutController extends Controller
@@ -29,13 +30,13 @@ class AboutController extends Controller
                 ->findOneBy(array('name' => $name));
 
             // Throw an exception if the user does not exist.
-            if (FALSE == $user instanceof User) {
+            if (false == $user instanceof User) {
                 throw $this->createNotFoundException('No user named ' . $name . ' found!');
             }
         }
 
         return $this->render('AppBundle:About:user.html.twig', [
-            'user' => !empty($user) ? $user : NULL,
+            'user' => !empty($user) ? $user : null,
         ]);
     }
 
@@ -54,13 +55,13 @@ class AboutController extends Controller
                 ->findOneBy(array('name' => $name));
 
             // Throw an exception if the user does not exist.
-            if (FALSE == $user instanceof User) {
+            if (false == $user instanceof User) {
                 throw $this->createNotFoundException('No user named ' . $name . ' found!');
             }
         }
 
         return $this->render('AppBundle:About:more.html.twig', [
-            'user' => !empty($user) ? $user : NULL,
+            'user' => !empty($user) ? $user : null,
         ]);
     }
 }

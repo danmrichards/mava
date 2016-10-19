@@ -107,7 +107,7 @@ class FeatureContext extends MinkContext implements SnippetAcceptingContext
         $field = $this->getSession()->getPage()->findField($element);
 
         // Throw an exception if the field could not be found.
-        if (NULL === $field) {
+        if (null === $field) {
             throw new ElementNotFoundException(
                 $this->getSession(), 'form field', 'id|name|label|value', $locator
             );
