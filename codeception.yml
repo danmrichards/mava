@@ -15,7 +15,9 @@ extensions:
 modules:
     config:
         Db:
-            dsn: ''
-            user: ''
-            password: ''
+            dsn: 'mysql:host=127.0.0.1; port=4306; dbname=mava_test'
+            user: 'docker'
+            password: 'docker'
             dump: tests/_data/dump.sql
+            populate: true
+            cleanup: false
