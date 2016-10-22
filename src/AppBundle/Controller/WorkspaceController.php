@@ -21,9 +21,24 @@ class WorkspaceController extends Controller
      */
     public function showAction($name)
     {
-        // TODO: Find available projects in the given workspace.
-        return $this->render('AppBundle:Workspace:show.html.twig', [
-            'project' => 'Symfony book',
-        ]);
+        // Find the workspace id from the given name.
+        $workspaceRepo = $this->getDoctrine()
+            ->getRepository('AppBundle:Workspace');
+        $workspace = $workspaceRepo->findOneBy(['name' => $name]);
+        $workspaceId = $workspace->getId();
+
+        // Find all projects which have the given workspace id.
+        $projectRepo = $this->getDoctrine()
+            ->getRepository('AppBundle:Project');
+        $projects = $projectRepo->findBy(['workspace' => $workspaceId]);
+
+        if ($projects == null) {
+            throw $this->createNotFoundException('Not found!');
+        }
+        else {
+            return $this->render('AppBundle:Workspace:show.html.twig', [
+                'projects' => $projects,
+            ]);
+        }
     }
 }
