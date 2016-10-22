@@ -9,8 +9,8 @@ modules:
         - \Helper\Unit
         - Db
         - Symfony2:
-          app_path: 'app'
-          var_path: 'var'
-          environment: 'test'
+            app_path: 'app'
+            var_path: 'var'
+            environment: 'test'
         - Doctrine2:
-          depends: Symfony2
+            depends: Symfony2
