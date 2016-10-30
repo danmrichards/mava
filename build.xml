@@ -56,6 +56,7 @@
     <target name="composer" unless="composer.done" description="Install composer dependencies">
         <exec executable="composer" failonerror="true">
             <arg value="install" />
+            <arg value="--no-scripts" />
         </exec>
     </target>
 
