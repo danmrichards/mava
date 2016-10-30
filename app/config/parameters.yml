@@ -10,6 +10,3 @@ parameters:
     mailer_user: null
     mailer_password: null
     secret: 21497227764866b1b5421042c438190c4d5cefb4
-
-    # Test environment
-    database_name_test: mava_test
