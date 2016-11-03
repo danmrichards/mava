@@ -1,0 +1,24 @@
+workspace_index:
+    path:     /
+    defaults: { _controller: "AppBundle:Workspace:index" }
+    methods:  GET
+
+workspace_show:
+    path:     /{id}/show
+    defaults: { _controller: "AppBundle:Workspace:show" }
+    methods:  GET
+
+workspace_new:
+    path:     /new
+    defaults: { _controller: "AppBundle:Workspace:new" }
+    methods:  [GET, POST]
+
+workspace_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AppBundle:Workspace:edit" }
+    methods:  [GET, POST]
+
+workspace_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AppBundle:Workspace:delete" }
+    methods:  DELETE

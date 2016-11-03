@@ -1,0 +1,15 @@
+app_workspace:
+    resource: "@AppBundle/Resources/config/routing/workspace.yml"
+    prefix:   /workspace
+
+app_project:
+    resource: "@AppBundle/Resources/config/routing/project.yml"
+    prefix:   /project
+
+app_task:
+    resource: "@AppBundle/Resources/config/routing/task.yml"
+    prefix:   /task
+
+app_user:
+    resource: "@AppBundle/Resources/config/routing/user.yml"
+    prefix:   /user
