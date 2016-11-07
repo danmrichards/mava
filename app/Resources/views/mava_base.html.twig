@@ -1,0 +1,22 @@
+{% extends "base.html.twig" %}
+
+{% block title 'MAVA' %}
+
+{% block head %}
+    <link rel="icon" sizes="16x16" href="{{ asset('favicon.ico') }}" />
+    {% stylesheets
+        '@bootstrap_css'
+        '@mava_css'
+        output='css/compiled/main.css' %}
+    <link rel="stylesheet" href="{{ asset_url }}" />
+    {% endstylesheets %}
+{% endblock %}
+
+{% block javascripts %}
+    {% javascripts
+        '@jquery'
+        '@bootstrap_js'
+        output='js/compiled/main.js' %}
+    <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+{% endblock %}
