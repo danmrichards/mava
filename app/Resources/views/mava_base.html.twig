@@ -6,6 +6,7 @@
     <link rel="icon" sizes="16x16" href="{{ asset('favicon.ico') }}" />
     {% stylesheets
         '@bootstrap_css'
+        '@metisMenu_css'
         '@mava_css'
         output='css/compiled/main.css' %}
     <link rel="stylesheet" href="{{ asset_url }}" />
@@ -16,6 +17,8 @@
     {% javascripts
         '@jquery'
         '@bootstrap_js'
+        '@metisMenu_js'
+        '@mava_js'
         output='js/compiled/main.js' %}
     <script src="{{ asset_url }}"></script>
     {% endjavascripts %}

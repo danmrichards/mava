@@ -75,6 +75,9 @@ fos_user:
     user_class: AppBundle\Entity\User
 
 # Sonata
+sonata_admin:
+    title: MAVA v1.0
+    title_logo: img/mava-logo-small.png
 sonata_block:
     default_contexts: [cms]
     blocks:
