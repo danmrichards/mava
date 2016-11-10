@@ -116,4 +116,15 @@ class FeatureContext extends MinkContext implements SnippetAcceptingContext
         // Populate the field value.
         $field->setValue($value);
     }
+
+    /**
+     * @Given I log in as Jack
+     */
+    public function iLogInAsJack()
+    {
+        $this->visit('/login');
+        $this->fillField('username', 'Jack');
+        $this->fillField('password', 'jackpass');
+        $this->pressButton('_submit');
+    }
 }
