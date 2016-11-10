@@ -2,6 +2,7 @@
 
 namespace AppBundle\Form;
 
+use Sonata\AdminBundle\Form\Type\Filter\ChoiceType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -13,7 +14,20 @@ class TaskType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('title')->add('description')->add('dueDate')->add('attachment')->add('project')->add('user')        ;
+        $builder
+            ->add('title')
+            ->add('description')
+            ->add('dueDate')
+            ->add('attachment')
+            ->add('project')
+            ->add('user')
+            ->add('status', ChoiceType::class, array(
+                'choices' => array(
+                    'new' => 'new',
+                    'in progress' => 'in progress',
+                    'completed' => 'completed',
+                )
+            ));
     }
     
     /**

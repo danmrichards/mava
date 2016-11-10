@@ -11,7 +11,12 @@ services:
             - { name: sonata.admin, manager_type: orm, label: Workspace }
 
     admin.project:
-            class: AppBundle\Admin\ProjectAdmin
-            arguments: [~, AppBundle\Entity\Project, ~]
-            tags:
-                - { name: sonata.admin, manager_type: orm, label: Project }
+        class: AppBundle\Admin\ProjectAdmin
+        arguments: [~, AppBundle\Entity\Project, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Project }
+
+    mava_util:
+        class: AppBundle\Util\Mava
+        arguments: ['@doctrine.orm.entity_manager']
+

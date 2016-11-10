@@ -12,8 +12,16 @@ class DashboardController extends Controller
      */
     public function indexAction()
     {
+        // Get the number of finished, due and new tasks from the utility class.
+        $util = $this->get('mava_util');
+        $finishedTasks = $util->finishedTasks();
+        $dueTasks = $util->dueTasks();
+        $newTasks = $util->newTasks();
+
         return $this->render(':dashboard:index.html.twig', array(
-            // ...
+            'finishedTasks' => $finishedTasks,
+            'newTasks' => $newTasks,
+            'dueTasks' => $dueTasks,
         ));
     }
 
