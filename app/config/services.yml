@@ -24,6 +24,14 @@ services:
         calls:
             - [ setTranslationDomain, [AppBundle]]
 
+    admin.team:
+        class: AppBundle\Admin\TeamAdmin
+        arguments: [~, AppBundle\Entity\Team, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Team, group: Content }
+        calls:
+            - [ setTranslationDomain, [AppBundle]]
+
     mava_util:
         class: AppBundle\Util\Mava
         arguments: ['@doctrine.orm.entity_manager']
