@@ -9,6 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table(name="task", indexes={@ORM\Index(name="fk_task_1_idx_idx", columns={"project_id"}), @ORM\Index(name="fk_task_2_idx_idx", columns={"user_id"})})
  * @ORM\Entity(repositoryClass="AppBundle\Repository\TaskRepository")
+ * @ORM\HasLifecycleCallbacks()
  */
 class Task
 {
@@ -20,6 +21,18 @@ class Task
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $id;
+
+    /**
+    * @var \DateTime
+    * @ORM\Column(name="created_at", type="datetime")
+    */
+    protected $createdAt;
+
+    /**
+    * @var \DateTime
+    * @ORM\Column(name="updated_at", type="datetime")
+    */
+    protected $updatedAt;
 
     /**
      * @var string
@@ -248,5 +261,42 @@ class Task
         $this->status = $status;
 
         return $this;
+    }
+
+    /**
+    * @ORM\PrePersist
+    */
+    public function setCreatedAt()
+    {
+        $this->createdAt = new \DateTime();
+        $this->updatedAt = new \DateTime();
+    }
+
+    /**
+     * Get createdAt
+     *
+     * @return \DateTime
+     */
+    public function getCreatedAt()
+    {
+        return $this->createdAt;
+    }
+
+    /**
+     * @ORM\PreUpdate
+     */
+    public function setUpdatedAt()
+    {
+        $this->updatedAt = new \DateTime();
+    }
+
+    /**
+     * Get updatedAt
+     *
+     * @return \DateTime
+     */
+    public function getUpdatedAt()
+    {
+        return $this->updatedAt;
     }
 }

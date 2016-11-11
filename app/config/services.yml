@@ -36,3 +36,8 @@ services:
         class: AppBundle\Util\Mava
         arguments: ['@doctrine.orm.entity_manager']
 
+    notification.listener:
+        class: AppBundle\EventListener\Notifier
+        tags:
+            - { name: doctrine.event_listener, event: postUpdate }
+            - { name: doctrine.event_listener, event: postPersist }
