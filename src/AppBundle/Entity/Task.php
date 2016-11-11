@@ -45,9 +45,10 @@ class Task
     /**
      * @var boolean
      *
-     * @ORM\Column(name="attachment", type="boolean", nullable=true)
+     * @ORM\OneToOne(targetEntity="Application\Sonata\MediaBundle\Entity\Media", cascade={"persist"})
+     * @ORM\JoinColumn(name="attachment_id", referencedColumnName="id")
      */
-    private $attachment;
+    protected $attachment;
 
     /**
      * @var \AppBundle\Entity\Project

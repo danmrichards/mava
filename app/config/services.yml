@@ -8,13 +8,21 @@ services:
         class: AppBundle\Admin\WorkspaceAdmin
         arguments: [~, AppBundle\Entity\Workspace, ~]
         tags:
-            - { name: sonata.admin, manager_type: orm, label: Workspace }
+            - { name: sonata.admin, manager_type: orm, label: Workspace, group: Content }
 
     admin.project:
         class: AppBundle\Admin\ProjectAdmin
         arguments: [~, AppBundle\Entity\Project, ~]
         tags:
-            - { name: sonata.admin, manager_type: orm, label: Project }
+            - { name: sonata.admin, manager_type: orm, label: Project, group: Content }
+
+    admin.task:
+        class: AppBundle\Admin\TaskAdmin
+        arguments: [~, AppBundle\Entity\Task, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Task, group: Content }
+        calls:
+            - [ setTranslationDomain, [AppBundle]]
 
     mava_util:
         class: AppBundle\Util\Mava

@@ -18,7 +18,10 @@ class TaskType extends AbstractType
             ->add('title')
             ->add('description')
             ->add('dueDate')
-            ->add('attachment')
+            ->add('attachment', 'sonata_media_type', array(
+                'provider' => 'sonata.media.provider.file',
+                'context' => 'default'
+            ))
             ->add('project')
             ->add('user')
             ->add('status', ChoiceType::class, array(
