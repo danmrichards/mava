@@ -2,6 +2,7 @@
 
 namespace AppBundle\Util;
 
+use AppBundle\Entity\Task;
 use Doctrine\ORM\EntityManagerInterface;
 
 /**
@@ -90,5 +91,45 @@ class Mava
         return $this->em
             ->getRepository('AppBundle:Project')
             ->getAllProjects();
+    }
+
+    /**
+     * Create a task.
+     *
+     * @param string $taskName
+     * @param string $taskDesc
+     * @param string $taskDueDate
+     * @param string $taskStatus
+     * @param int|null $userId
+     * @param int|null $projectId
+     *
+     * @return bool
+     *
+     * @throws \Exception
+     */
+    public function createTask($taskName, $taskDesc, $taskDueDate, $taskStatus, $userId = null, $projectId = null) {
+        $task = new Task();
+        $task->setTitle($taskName);
+        $task->setDescription($taskDesc);
+        $task->setDueDate(new \DateTime($taskDueDate));
+        $task->setStatus($taskStatus);
+
+        if ($projectId) {
+            $project = $this->em->getRepository('AppBundle:Project');
+            $task->setProject($project->find($projectId));
+        }
+
+        if ($userId) {
+            $user = $this->em->getRepository('AppBundle:User');
+            $task->setUser($user->find($userId));
+        }
+
+        try {
+            $this->em->persist($task);
+            $this->em->flush();
+            return true;
+        } catch (\Exception $e) {
+            throw $e;
+        }
     }
 }
