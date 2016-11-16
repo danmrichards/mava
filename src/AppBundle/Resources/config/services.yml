@@ -1,0 +1,4 @@
+services:
+    mava_util:
+        class: AppBundle\Util\Mava
+        arguments: ['@doctrine.orm.entity_manager']

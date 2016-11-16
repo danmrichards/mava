@@ -32,9 +32,10 @@ services:
         calls:
             - [ setTranslationDomain, [AppBundle]]
 
-    mava_util:
-        class: AppBundle\Util\Mava
-        arguments: ['@doctrine.orm.entity_manager']
+    # mava_util service defined in /src/AppBundle/Resources/config/services.yml
+    #mava_util:
+    #    class: AppBundle\Util\Mava
+    #    arguments: ['@doctrine.orm.entity_manager']
 
     notification.listener:
         class: AppBundle\EventListener\Notifier
