@@ -29,6 +29,12 @@ class ProjectRepository extends EntityRepository
             $q->setParameter('workSpaceId', $workspaceId);
         }
 
-        return $q->getQuery()->getResult();
+        $q = $q->getQuery();
+
+        // Enable caching.
+        $q->useQueryCache(true);
+        $q->useResultCache(true, 1800);
+
+        return $q->getResult();
     }
 }
