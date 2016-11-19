@@ -64,6 +64,13 @@ class AppKernel extends Kernel
 
     public function registerContainerConfiguration(LoaderInterface $loader)
     {
-        $loader->load($this->getRootDir().'/config/config_'.$this->getEnvironment().'.yml');
+        $envParameters = $this->getEnvParameters();
+
+        if (@$envParameters['rds.hostname'] == 'region2_host') {
+            $loader->load($this->getRootDir() . '/config/config_region2.yml');
+        }
+        else {
+            $loader->load($this->getRootDir() . '/config/config_' . $this->getEnvironment() . '.yml');
+        }
     }
 }
