@@ -67,6 +67,13 @@ doctrine:
                 mappings:
                     ApplicationSonataMediaBundle: ~
                     SonataMediaBundle: ~
+                metadata_cache_driver: apcu
+                query_cache_driver: apcu
+                result_cache_driver:
+                    type: memcache
+                    host: memcached
+                    port: 11211
+                    instance_class: Memcache
 
 # Swiftmailer Configuration
 swiftmailer:
