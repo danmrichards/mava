@@ -5,6 +5,7 @@ namespace AppBundle\Controller;
 use AppBundle\Entity\Task;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Cache;
 
 /**
  * Task controller.
@@ -15,6 +16,7 @@ class TaskController extends Controller
     /**
      * Lists all task entities.
      *
+     * @Cache(smaxage="120")
      */
     public function indexAction()
     {
